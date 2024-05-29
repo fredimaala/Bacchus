@@ -7,3 +7,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model bid {
+  productId          Int    @id
+  productName        String
+  productDescription String
+  productCategory    String 
+  biddingEndDate     DateTime
+}
+
+model user {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
